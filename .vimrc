@@ -1,0 +1,284 @@
+" Description {
+    " sh7ne的vim配置
+    " thes.sinaapp.com
+    " 2014-9-18
+" }
+
+" Environment {
+
+    " Basics {
+        "格式化高亮
+        syntax on
+        "禁用VI兼容模式
+        set nocompatible
+    " }
+
+    " Use bundles config {
+        if filereadable(expand("~/.vimrc.bundles"))
+            source ~/.vimrc.bundles
+        endif
+    " }
+
+    " General {
+        "公共配置
+        "显示行号
+        set nu
+        "设置新文件的编码为 UTF-8
+        set encoding=utf-8
+        "Vim 在与屏幕/键盘交互时使用的编码(取决于实际的终端的设定)
+        set termencoding=utf-8
+        "Vim 打开文件时的尝试使用的编码
+        set fileencodings=utf-8,gbk,default,latin1
+        " Use Unix as the standard file type
+        set ffs=unix,dos,mac
+        " 鼠标暂不启用
+        set mouse-=a
+
+        "自动对齐
+        set ai
+        "依据上面的对齐格式
+        set smartindent
+        set cindent
+        "自动换行
+        set wrap
+        "set nowrap 取消换行
+        "不在单词中间断行
+        set lbr
+        set tw=0
+        " smart backspace
+        set backspace=start,indent,eol
+        " No extra spaces between rows
+        set linespace=0
+
+        " tab相关变更
+        " 设置Tab键的宽度        [等同的空格个数]
+        set tabstop=4
+        " 每一次缩进对应的空格数
+        set shiftwidth=4
+        " 按退格键时可以一次删掉 4 个空格
+        set softtabstop=4
+        " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
+        set smarttab
+        " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+        set expandtab
+        " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
+        set shiftround
+
+        " 代码折叠
+        set foldenable
+        " 折叠方法
+        " manual    手工折叠
+        " indent    使用缩进表示折叠
+        " expr      使用表达式定义折叠
+        " syntax    使用语法定义折叠
+        " diff      对没有更改的文本进行折叠
+        " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
+        set foldmethod=indent
+        set foldlevel=99
+
+        "括号配对情况,跳转并高亮一下匹配的括号
+        set showmatch
+        set matchtime=2
+
+        " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+        set scrolloff=7
+
+        " history存储行数
+        set history=2000
+        "文件被外部修改，自动读入
+        set autoread
+        " 启动的时候不显示那个援助索马里儿童的提示
+        "set shortmess=atI
+        set shortmess+=filmnrxoOtT
+
+        " 检索时高亮显示匹配项
+        set hlsearch
+        " 打开增量搜索模式,随着键入即时搜索
+        set incsearch
+        " 搜索时忽略大小写
+        set ignorecase
+        " 有一个或以上大写字母时仍大小写敏感
+        set smartcase
+        " For regular expressions turn magic on
+        set magic
+
+        "改变命令行的title
+        set title
+        " 去掉错误时提示声音
+        set noerrorbells
+        set novisualbell
+        set t_vb=
+        set tm=500
+
+        "没有保存的缓冲区可以自动被隐藏
+        set hidden
+        set ttyfast
+
+        " 取消备份
+        set nobackup
+        set nowb
+        " 关闭交换文件
+        set noswapfile
+
+        " Setting up the directories {
+        if has('persistent_undo')
+            " So is persistent undo ...
+            set undofile
+            " Maximum number of changes that can be undone
+            set undolevels=1000
+            " Maximum number lines to save for undo on a buffer reload
+            set undoreload=10000
+            set undodir=/tmp/vimundo/
+        endif
+
+        " 左下角显示当前vim模式
+        set showmode
+
+        if has('cmdline_info')
+            set ruler
+            ""在状态栏显示正在输入的命令
+            set showcmd
+        endif
+
+        if has('statusline')
+            set laststatus=2
+            " Broken down into easily includeable segments
+            set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+        endif
+
+        "检测文件类型
+        filetype on
+        "" 针对不同的文件类型采用不同的缩进格式
+        filetype indent on
+        "允许插件
+        filetype plugin on
+        ""启动自动补全
+        filetype plugin indent on
+
+        " 自动补全配置
+        "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+        "set wildmode=list:longest,full
+        "set completeopt=longest,menu
+        "文件和目录名的补全中忽略符合其中任何模式的文件
+        "set wildignore=*.swp,*.bak,.svn
+        " 增强模式中的命令行自动完成操作
+        set wildmenu
+
+        " 打开文件为上次打开的位置 if this not work ,make sure .viminfo is writable for you
+        if has("autocmd")
+            au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        endif
+    " }
+
+    " Theme {
+        "set background=dark
+        "colorscheme elflord
+        colorscheme pablo
+        "let g:solarized_termcolors=256
+        "set background=dark
+        set t_Co=256
+        "编辑区背景色
+        hi Normal guibg=#99cc99 guifg=Black
+        "行号背景色
+        "hi LineNr guibg=#003366 guifg=#99ccff ctermbg=7777 ctermfg=blue
+        " 突出显示当前行等 高亮
+        set cursorline
+        "set cursorcolumn
+        "光标所在行背景色
+        hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=#66cc99 guifg=black
+
+        " SignColumn should match background
+        highlight clear SignColumn
+        " Current line number row will have same background color in relative mode
+        highlight clear LineNr
+        " Remove highlight color from current line number
+        "highlight clear CursorLineNr
+    " "}
+
+    " Map hot key and setup Plugin {
+        " 修改leader键 key
+        let mapleader = ','
+        let g:mapleader = ','
+
+        " Plugin
+        " NerdTree {
+            if isdirectory(expand("~/.vim/bundle/nerdtree"))
+                let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+                let NERDTreeShowHidden=1
+                let g:nerdtree_tabs_open_on_gui_startup=0
+                " key
+                map <Leader>n <plug>NERDTreeTabsToggle<CR>
+                "map <leader>e :NERDTreeToggle<CR>
+            endif
+        " }
+        " PIV {
+            if isdirectory(expand("~/.vim/bundle/PIV"))
+                let g:DisableAutoPHPFolding = 1
+                let g:PIVAutoClose = 0
+            endif
+        " }
+        " TagBar {
+            if isdirectory(expand("~/.vim/bundle/tagbar/"))
+                nnoremap <silent> <leader>tt :TagbarToggle<CR>
+                let g:tagbar_autofocus = 1
+            endif
+        " }
+        " neocomplcache {
+            if isdirectory(expand("~/.vim/bundle/neocomplcache"))
+                let g:neocomplcache_enable_at_startup = 1
+            endif
+        " }
+        " Snippets {
+        if exists('g:spf13_bundle_groups')
+            if count(g:spf13_bundle_groups, 'neocomplcache') ||
+                        \ count(g:spf13_bundle_groups, 'neocomplete')
+
+                " Use honza's snippets.
+                let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+                " Enable neosnippet snipmate compatibility mode
+                let g:neosnippet#enable_snipmate_compatibility = 1
+
+                " For snippet_complete marker.
+                if !exists("g:spf13_no_conceal")
+                    if has('conceal')
+                        set conceallevel=2 concealcursor=i
+                    endif
+                endif
+
+                " Enable neosnippets when using go
+                let g:go_snippet_engine = "neosnippet"
+
+                " Disable the neosnippet preview candidate window
+                " When enabled, there can be too much visual noise
+                " especially when splits are used.
+                set completeopt-=preview
+            endif
+        endif
+        " }
+        " vim-airline {
+            if isdirectory(expand("~/.vim/bundle/neocomplcache"))
+                if !exists('g:airline_symbols')
+                    let g:airline_symbols = {}
+                endif
+                let g:airline_left_sep = '>'
+                let g:airline_right_sep = '<'
+            endif
+        " }
+
+        "粘贴时候防止格式错乱 key
+        set pastetoggle=<F4>
+        "设置重新载入.vimrc快捷键 key
+        map <silent> <leader>ss :source ~/.vimrc<cr>
+        "设置快速编辑.vimrc快捷键 key
+        map <silent> <leader>ee :e ~/.vimrc<cr>
+    " }
+    " Other {
+        " Always switch to the current file directory
+        autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+        "配置文件.vimrc更改后自动重新载入使设置生效
+        autocmd! bufwritepost .vimrc source ~/.vimrc
+    " }
+
+" }
+

@@ -1,0 +1,191 @@
+" Environment {
+    " Setup Bundle Support {
+        filetype off
+        set rtp+=~/.vim/bundle/vundle/
+        call vundle#rc()
+    " }
+" }
+
+" Bundles {
+
+    " Deps {
+        "使用Vundle来管理插件
+        " vim plugin bundle control, command model
+        " :BundleInstall     install 安装配置的插件
+        " :BundleInstall!    update  更新
+        " :BundleClean       remove plugin not in list 删除本地无用插件
+        Bundle 'gmarik/vundle'
+        "Bundle 'MarcWeber/vim-addon-mw-utils'
+        "Bundle 'tomtom/tlib_vim'
+    " }
+
+    if !exists('g:spf13_bundle_groups')
+        let g:spf13_bundle_groups=['general', 'programming', 'neocomplcache', 'php', 'javascript', 'html',]
+    endif
+
+    " General {
+        if count(g:spf13_bundle_groups, 'general')
+            " 目录导航
+            Bundle 'scrooloose/nerdtree'
+            " 增强nerdtree
+            Bundle 'jistr/vim-nerdtree-tabs'
+            "多光标
+"            Bundle 'terryma/vim-multiple-cursors'
+            " 快速跳转
+            ""Bundle 'Lokaltog/vim-easymotion'
+            "udo时光机依赖vim版本 同类sjl/gundo.vim
+            ""Bundle 'mbbill/undotree'
+"            if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+"                Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+"            elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
+"                Bundle 'Lokaltog/vim-powerline'
+"            else
+                Bundle 'bling/vim-airline'
+"            endif
+            ""Bundle 'bling/vim-bufferline'
+
+            " 补全(){}等
+            ""Bundle 'tpope/vim-surround'
+            ""Bundle 'tpope/vim-repeat'
+            ""Bundle 'spf13/vim-autoclose'
+
+            " 在匹配中跳转
+            ""Bundle 'matchit.zip'
+
+            "快速查找文件
+            ""Bundle 'kien/ctrlp.vim'
+            "列出文件中的函数名
+            ""Bundle 'tacahiroy/ctrlp-funky'
+
+            "代码垂直缩进对齐线
+            ""Bundle 'nathanaelkane/vim-indent-guides'
+
+            "保存文件退出状态,方便下次打开
+            ""if !exists('g:spf13_no_views')
+"            Bundle 'vim-scripts/restore_view.vim'
+            ""endif
+
+            "保存当前文件状态
+"            Bundle 'vim-scripts/sessionman.vim'
+
+            "文本搜索和替换插件
+            ""Bundle 'tpope/vim-abolish.git'
+            ""Bundle 'osyo-manga/vim-over'
+            ""Bundle 'kana/vim-textobj-user'
+            ""Bundle 'kana/vim-textobj-indent'
+            ""Bundle 'gcmt/wildfire.vim'
+
+            "主题
+            "Bundle 'altercation/vim-colors-solarized'
+            ""Bundle 'spf13/vim-colors'
+            ""Bundle 'flazz/vim-colorschemes'
+
+        endif
+    " }
+
+    " General Programming {
+        if count(g:spf13_bundle_groups, 'programming')
+            " Pick one of the checksyntax, jslint, or syntastic
+            "语法检查支持php,js等
+            Bundle 'scrooloose/syntastic'
+"            Bundle 'tomtom/checksyntax_vim'
+            "赋值语句对齐,json冒号,数组里的等号对齐
+"            Bundle 'godlygeek/tabular'
+            if executable('ctags')
+                "vim版本大于7.0.167
+                Bundle 'majutsushi/tagbar'
+            endif
+            "高亮行尾空格
+            ""Bundle 'bronson/vim-trailing-whitespace'
+            "git相关
+            ""Bundle 'tpope/vim-fugitive'
+            ""Bundle 'mattn/webapi-vim' "webapi
+            "提交代码到github
+            ""Bundle 'mattn/gist-vim'
+            "代码注释#风格
+            ""Bundle 'scrooloose/nerdcommenter'
+            "代码注释/**/风格
+            ""Bundle 'tpope/vim-commentary'
+"            tcomment注释插件，支持php文件中有html
+        endif
+    " }
+
+    " Snippets and AutoComplete 代码片段和自动补全 {
+        if count(g:spf13_bundle_groups, 'snipmate')
+            Bundle 'garbas/vim-snipmate'
+            Bundle 'honza/vim-snippets'
+            " Source support_function.vim to support vim-snippets.
+            if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+                source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+            endif
+        elseif count(g:spf13_bundle_groups, 'youcompleteme')
+            Bundle 'Valloric/YouCompleteMe'
+            Bundle 'SirVer/ultisnips'
+            Bundle 'honza/vim-snippets'
+        elseif count(g:spf13_bundle_groups, 'neocomplcache')
+            Bundle 'Shougo/neocomplcache'
+            Bundle 'Shougo/neosnippet'
+            Bundle 'Shougo/neosnippet-snippets'
+            Bundle 'honza/vim-snippets'
+        elseif count(g:spf13_bundle_groups, 'neocomplete')
+            Bundle 'Shougo/neocomplete.vim.git'
+            Bundle 'Shougo/neosnippet'
+            Bundle 'Shougo/neosnippet-snippets'
+            Bundle 'honza/vim-snippets'
+        endif
+    " }
+
+    " PHP {
+"        if count(g:spf13_bundle_groups, 'php')
+"            Bundle 'spf13/PIV'
+"            Bundle 'arnaud-lb/vim-php-namespace'
+            ""Bundle 'beyondwords/vim-twig'
+"        endif
+    " }
+
+    " Javascript {
+"        if count(g:spf13_bundle_groups, 'javascript')
+            ""Bundle 'pangloss/vim-javascript'
+            " json高亮
+            ""Bundle 'elzr/vim-json'
+            ""Bundle 'groenewege/vim-less'
+            ""Bundle 'briancollins/vim-jst'
+            ""Bundle 'kchmck/vim-coffee-script'
+"        endif
+    " }
+
+    " HTML {
+"        if count(g:spf13_bundle_groups, 'html')
+"            Bundle 'amirh/HTML-AutoCloseTag'
+"            Bundle 'hail2u/vim-css3-syntax'
+            ""Bundle 'gorodinskiy/vim-coloresque'
+            ""Bundle 'tpope/vim-haml'
+"        endif
+    " }
+
+    " Python {
+        if count(g:spf13_bundle_groups, 'python')
+            " Pick either python-mode or pyflakes and pydoc
+            Bundle 'klen/python-mode'
+            Bundle 'yssource/python.vim'
+            Bundle 'python_match.vim'
+            Bundle 'pythoncomplete'
+        endif
+    " }
+
+    " Ruby {
+        if count(g:spf13_bundle_groups, 'ruby')
+            Bundle 'tpope/vim-rails'
+            let g:rubycomplete_buffer_loading = 1
+            "let g:rubycomplete_classes_in_global = 1
+            "let g:rubycomplete_rails = 1
+        endif
+    " }
+
+    " Go Lang {
+        if count(g:spf13_bundle_groups, 'go')
+            "Bundle 'Blackrush/vim-gocode'
+            Bundle 'fatih/vim-go'
+        endif
+    " }
+" }
