@@ -1,7 +1,8 @@
 " Description {
     " sh7ne的vim配置
     " thes.sinaapp.com
-    " 2014-9-18
+    " 新建时间：2014-6-6
+    " 最后更新时间：2014-9-28
 " }
 
 " Environment {
@@ -271,6 +272,14 @@
         "map <silent> <leader>ee :e ~/.vimrc<cr>
         "php语法检测，因为安装了语法插件，所以不启用，如插件无效，可以手动开启
         "map <F9> :!php -l % <CR>
+        "svn使用 {
+            "更新当前目录的代码
+            "map <F5> :!svn up <CR>
+            "提交当前目录的svn 
+            "map <F4> :!svn ci -m ""<CR>
+            "提交当前文件
+            "map <F6> :!svn ci -m "" % <CR>
+         " }
     " }
     " Other {
         " 定义函数AutoSetFileHead，自动插入文件头
