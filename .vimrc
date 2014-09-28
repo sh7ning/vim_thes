@@ -34,7 +34,7 @@
         " 鼠标暂不启用
         set mouse-=a
 
-        "自动对齐
+        "自动对齐 autoindent
         set ai
         "依据上面的对齐格式
         set smartindent
@@ -164,10 +164,6 @@
         " 增强模式中的命令行自动完成操作
         set wildmenu
 
-        " 打开文件为上次打开的位置 if this not work ,make sure .viminfo is writable for you
-        if has("autocmd")
-            au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-        endif
     " }
 
     " Theme {
@@ -185,7 +181,8 @@
         set cursorline
         "set cursorcolumn
         "光标所在行背景色
-        hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=#66cc99 guifg=black
+        hi CursorLine guibg=#2d2d2d ctermbg=236 cterm=none
+        "hi CursorLine cterm=NONE ctermbg=darkred guibg=#66cc99 guifg=black ctermfg=white
 
         " SignColumn should match background
         highlight clear SignColumn
@@ -269,11 +266,53 @@
         "粘贴时候防止格式错乱 key
         set pastetoggle=<F4>
         "设置重新载入.vimrc快捷键 key
-        map <silent> <leader>ss :source ~/.vimrc<cr>
+        "map <silent> <leader>ss :source ~/.vimrc<cr>
         "设置快速编辑.vimrc快捷键 key
-        map <silent> <leader>ee :e ~/.vimrc<cr>
+        "map <silent> <leader>ee :e ~/.vimrc<cr>
+        "php语法检测，因为安装了语法插件，所以不启用，如插件无效，可以手动开启
+        "map <F9> :!php -l % <CR>
     " }
     " Other {
+        " 定义函数AutoSetFileHead，自动插入文件头
+        autocmd BufNewFile *.sh,*.php exec ":call AutoSetFileHead()"
+        function! AutoSetFileHead()
+            "如果文件类型为.sh文件
+            if &filetype == 'sh'
+                call setline(1, "\#!/bin/bash")
+            endif
+
+            "如果文件类型为php
+            if &filetype == 'php'
+                call setline(1, "<?php")
+                "call append(0, "<?php")
+                "call append(line("$"), "?>")
+            endif
+
+            normal G
+            normal o
+        endfunc
+
+        "去掉空格
+        "map <F6> :call StripTrailingBr()<CR>
+        "也可以设置为保存php的过程中自动进行处理 
+        "autocmd BufWrite *.php :call DeleteTrailingWS()
+        func! DeleteTrailingWS()
+            exe "normal mz"
+            %s/\s\+$//ge
+            exe "normal `z"
+        endfunc
+
+        "删除行尾^M符号
+        "map <F5> :call StripTrailingBr()<CR>
+        function! StripTrailingBr()  
+            exec "%s/\r//g"
+        endfunction
+
+
+        " 打开文件为上次打开的位置 if this not work ,make sure .viminfo is writable for you
+        if has("autocmd")
+            au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        endif
         " Always switch to the current file directory
         autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
         "配置文件.vimrc更改后自动重新载入使设置生效
