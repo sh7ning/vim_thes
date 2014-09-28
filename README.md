@@ -1,4 +1,5 @@
-### VIMthEs
+### vim_thes
+=======================
 
 > 安装环境需要：
 - vim7.3+
@@ -7,7 +8,7 @@
 > 关于：
 - 最后更新时间：2014.9.28
 
-#### VIM_thEs安装方法
+#### vim_thes安装方法
 
     curl http://sh7ne.sinaapp.com/tools/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
 
