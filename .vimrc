@@ -2,7 +2,7 @@
     " sh7ne的vim配置
     " thes.sinaapp.com
     " 新建时间：2014-6-6
-    " 最后更新时间：2014-9-28
+    " 最后更新时间：2014-9-30
 " }
 
 " Environment {
@@ -155,6 +155,11 @@
         filetype plugin on
         ""启动自动补全
         filetype plugin indent on
+
+        "让分屏出现在右侧vsp
+        set splitright
+        "让分屏出现在下侧
+        set splitbelow
 
         " 自动补全配置
         "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
