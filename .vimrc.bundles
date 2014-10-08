@@ -106,6 +106,7 @@
             ""Bundle 'scrooloose/nerdcommenter'
             "代码注释/**/风格
             ""Bundle 'tpope/vim-commentary'
+            Bundle 'tComment'
 "            tcomment注释插件，支持php文件中有html
         endif
     " }
