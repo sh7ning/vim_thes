@@ -129,7 +129,7 @@
             set undolevels=1000
             " Maximum number lines to save for undo on a buffer reload
             set undoreload=10000
-            set undodir=/tmp/vimundo/
+            set undodir=~/.vim/undo
         endif
 
         " 左下角显示当前vim模式
