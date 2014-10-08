@@ -76,7 +76,7 @@
             ""Bundle 'gcmt/wildfire.vim'
 
             "主题
-            "Bundle 'altercation/vim-colors-solarized'
+            Bundle 'altercation/vim-colors-solarized'
             ""Bundle 'spf13/vim-colors'
             ""Bundle 'flazz/vim-colorschemes'
 

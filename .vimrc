@@ -173,22 +173,30 @@
     " }
 
     " Theme {
-        "set background=dark
-        "colorscheme elflord
-        colorscheme pablo
-        "let g:solarized_termcolors=256
-        "set background=dark
-        set t_Co=256
-        "编辑区背景色
-        hi Normal guibg=#99cc99 guifg=Black
-        "行号背景色
-        "hi LineNr guibg=#003366 guifg=#99ccff ctermbg=7777 ctermfg=blue
         " 突出显示当前行等 高亮
         set cursorline
         "set cursorcolumn
-        "光标所在行背景色
-        hi CursorLine guibg=#2d2d2d ctermbg=236 cterm=none
-        "hi CursorLine cterm=NONE ctermbg=darkred guibg=#66cc99 guifg=black ctermfg=white
+
+        set background=dark
+        if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+            let g:solarized_termcolors=256
+            let g:solarized_termtrans=1
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
+            color solarized             " Load a colorscheme
+        else
+            " 默认主题
+            colorscheme pablo
+            "colorscheme elflord
+            "编辑区背景色 启用
+            hi Normal guibg=#99cc99 guifg=Black
+            "光标所在行背景色 启用
+            hi CursorLine guibg=#2d2d2d ctermbg=236 cterm=none
+            "hi CursorLine cterm=NONE ctermbg=darkred guibg=#66cc99 guifg=black ctermfg=white
+            "行号背景色
+            hi LineNr guibg=#003366 guifg=#99ccff ctermbg=7777 ctermfg=blue
+        endif
+        set t_Co=256
 
         " SignColumn should match background
         highlight clear SignColumn
