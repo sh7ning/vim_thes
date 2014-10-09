@@ -276,6 +276,12 @@
                 let g:airline_right_sep = '<'
             endif
         " }
+        " vim-markdown {
+            if isdirectory(expand("~/.vim/bundle/vim-markdown"))
+                let g:vim_markdown_folding_disabled=1
+                let g:vim_markdown_no_default_key_mappings=1
+            endif
+        " }
 
         "粘贴时候防止格式错乱 key
         set pastetoggle=<F4>

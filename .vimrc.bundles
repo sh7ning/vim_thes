@@ -14,6 +14,11 @@
         " :BundleInstall     install 安装配置的插件
         " :BundleInstall!    update  更新
         " :BundleClean       remove plugin not in list 删除本地无用插件
+        
+        " :BundleList   列出所有配置的
+        " :BundleSearch foo 搜索foo插件
+        " :BundleSearch! foo 刷新foo插件缓存
+        "
         Bundle 'gmarik/vundle'
         "Bundle 'MarcWeber/vim-addon-mw-utils'
         "Bundle 'tomtom/tlib_vim'
@@ -188,5 +193,8 @@
             "Bundle 'Blackrush/vim-gocode'
             Bundle 'fatih/vim-go'
         endif
+    " }
+    " Other {
+        Bundle 'plasticboy/vim-markdown'
     " }
 " }
