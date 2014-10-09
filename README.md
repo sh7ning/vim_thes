@@ -11,8 +11,7 @@ vim_thes
 #### vim_thes安装方法
 
     curl http://sh7ne.sinaapp.com/tools/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
-    或
-    git clone --recursive https://github.com/sh7ning/vim_thes.git $HOME/.vim_thes && sh $HOME/.vim_thes/install.sh
+
 这个过程会帮你备份好你之前的vim配置和插件，然后安装好插件
 
 #### 学习vim的基本用法文章整理
