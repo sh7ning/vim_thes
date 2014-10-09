@@ -1,10 +1,12 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # {
-    http://thes.sinaapp.com
+    # http://thes.sinaapp.com
     # 安装方法: L选项是强制重定向
     # curl http://sh7ne.sinaapp.com/tools/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
 # }
+echo 'hello world'
+exit
 
 app_dir="$HOME/.vim_thes"
 
