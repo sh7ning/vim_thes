@@ -8,7 +8,7 @@ vim_thes
 > 关于：
 - 最后更新时间：2014.10.9
 
-#### vim_thes安装方法
+### vim_thes安装方法
 
     curl http://sh7ne.sinaapp.com/tools/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
 
@@ -16,7 +16,50 @@ vim_thes
 
 ![我的vim界面预览](https://raw.githubusercontent.com/sh7ning/img/master/vim.png "我的vim界面预览")
 
-#### 学习vim的基本用法文章整理
+### 插件部分
+1. #### gmarik/vundle
+
+    插件管理，用于管理vim插件，方便安装，更新，卸载vim插件
+
+1. #### scrooloose/nerdtree
+
+    目录导航，用于文件目录导航，方便打开相关文件
+
+1. #### jistr/vim-nerdtree-tabs
+
+    增强nerdtree
+
+1. #### bling/vim-airline
+
+    状态栏增加
+
+1. #### altercation/vim-colors-solarized
+
+    vim主题
+
+1. #### scrooloose/syntastic
+
+    语法检测，支持多种语言
+
+1. #### majutsushi/tagbar
+
+    函数跳转
+
+    依赖ctags（如果没安装请先安装），用于函数跳转
+
+1. #### vim-scripts/tComment
+
+    快速注释
+
+1. #### 自动补全和自定义代码片段插件
+
+    Shougo/neocomplcache  Shougo/neosnippet  Shougo/neosnippet-snippets honza/vim-snippets
+
+1. #### plasticboy/vim-markdown
+
+    markdown语法高亮等
+
+### 学习vim的基本用法文章整理
 > [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html)
 [无插件Vim编程技巧](http://coolshell.cn/articles/11312.html)
 [Vim的分屏功能](http://coolshell.cn/articles/1679.html)
