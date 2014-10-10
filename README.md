@@ -14,6 +14,8 @@ vim_thes
 
 这个过程会帮你备份好你之前的vim配置和插件，然后安装好插件
 
+![我的vim界面预览](https://raw.githubusercontent.com/sh7ning/img/master/vim.png "我的vim界面预览")
+
 #### 学习vim的基本用法文章整理
 > [简明 Vim 练级攻略](http://coolshell.cn/articles/5426.html)
 [无插件Vim编程技巧](http://coolshell.cn/articles/11312.html)
