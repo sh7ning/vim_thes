@@ -17,13 +17,13 @@ vim_thes
 ![我的vim界面预览](https://raw.githubusercontent.com/sh7ning/img/master/vim.png "我的vim界面预览")
 
 ### 快捷键相关
-- 修改了<leader>为逗号(,)
-- <Leader>n :切换nerdtree
-- <leader>tt :打开Tagbar
-- <F4> :开/关 复制粘贴模式
 
-- 以下是默认未开启的快捷键
+    修改了<leader>为逗号(,)
+    <Leader>n :切换nerdtree
+    <leader>tt :打开Tagbar
+    <F4> :开/关 复制粘贴模式
 
+    以下是默认未开启的快捷键
     <F3> : 检测php语法是否正确，如果语法检测插件不可用，可以使用这个
     <F5> : 去掉^M符号
     <F6> : 去掉行尾空格
