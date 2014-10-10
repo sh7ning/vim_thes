@@ -15,6 +15,9 @@ vim_thes
 这个过程会帮你备份好你之前的vim配置和插件，然后安装好插件
 
 ![我的vim界面预览](https://raw.githubusercontent.com/sh7ning/img/master/vim.png "我的vim界面预览")
+
+演示
+
 ![开始使用vim](https://raw.githubusercontent.com/sh7ning/img/master/vim_run.gif "开始使用vim")
 
 ### 快捷键相关
