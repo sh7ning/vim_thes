@@ -1,6 +1,6 @@
 " Description {
     " sh7ne的vim配置
-    " thes.sinaapp.com
+    " https://github.com/sh7ning/vim_thes
     " 新建时间：2014-6-6
     " 最后更新时间：2014-10-9
 " }
