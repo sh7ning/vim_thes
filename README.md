@@ -73,7 +73,10 @@ vim_thes
 
 #### 自动补全和自定义代码片段插件
 
-    [neocomplcache](https://github.com/Shougo/neocomplcache)  [neosnippet](https://github.com/Shougo/neosnippet)  [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets) [vim-snippets](https://github.com/honza/vim-snippets)
+> [neocomplcache](https://github.com/Shougo/neocomplcache)
+[neosnippet](https://github.com/Shougo/neosnippet)
+[neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
+[vim-snippets](https://github.com/honza/vim-snippets)
 
 #### [vim-markdown](https://github.com/plasticboy/vim-markdown)
 
