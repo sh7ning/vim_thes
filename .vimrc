@@ -285,20 +285,29 @@
 
         "粘贴时候防止格式错乱 key
         set pastetoggle=<F4>
+        "php语法检测，因为安装了语法插件，所以不启用，如插件无效，可以手动开启
+        "map <F3> :!php -l % <CR>
+        "svn使用 {
+            "更新当前目录的代码
+            "map <F7> :!svn up <CR>
+            "提交当前目录的svn 
+            "map <F8> :!svn ci -m ""<CR>
+            "提交当前文件
+            "map <F9> :!svn ci -m "" % <CR>
+        " }
+        
+        " 去掉^M
+        "map <F5> :call StripTrailingBr()<CR>
+        
+        " 去掉行尾空格
+        "map <F6> :call StripTrailingBr()<CR>
+        "也可以设置为保存php的过程中自动进行处理 
+        "autocmd BufWrite *.php :call DeleteTrailingWS()
+
         "设置重新载入.vimrc快捷键 key
         "map <silent> <leader>ss :source ~/.vimrc<cr>
         "设置快速编辑.vimrc快捷键 key
         "map <silent> <leader>ee :e ~/.vimrc<cr>
-        "php语法检测，因为安装了语法插件，所以不启用，如插件无效，可以手动开启
-        "map <F9> :!php -l % <CR>
-        "svn使用 {
-            "更新当前目录的代码
-            "map <F5> :!svn up <CR>
-            "提交当前目录的svn 
-            "map <F4> :!svn ci -m ""<CR>
-            "提交当前文件
-            "map <F6> :!svn ci -m "" % <CR>
-         " }
     " }
     " Other {
         " 定义函数AutoSetFileHead，自动插入文件头
@@ -320,22 +329,17 @@
             normal o
         endfunc
 
+        "删除行尾^M符号
+        function! StripTrailingBr()  
+            exec "%s/\r//g"
+        endfunction
+
         "去掉空格
-        "map <F6> :call StripTrailingBr()<CR>
-        "也可以设置为保存php的过程中自动进行处理 
-        "autocmd BufWrite *.php :call DeleteTrailingWS()
         func! DeleteTrailingWS()
             exe "normal mz"
             %s/\s\+$//ge
             exe "normal `z"
         endfunc
-
-        "删除行尾^M符号
-        "map <F5> :call StripTrailingBr()<CR>
-        function! StripTrailingBr()  
-            exec "%s/\r//g"
-        endfunction
-
 
         " 打开文件为上次打开的位置 if this not work ,make sure .viminfo is writable for you
         if has("autocmd")
