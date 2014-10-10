@@ -37,45 +37,45 @@ vim_thes
     <F9> : svn提交当前文件
 
 ### 插件相关
-1. #### gmarik/vundle
+#### [vundle](https://github.com/gmarik/vundle)
 
     插件管理，用于管理vim插件，方便安装，更新，卸载vim插件
 
-1. #### scrooloose/nerdtree
+#### [nerdtree](https://github.com/scrooloose/nerdtree)
 
     目录导航，用于文件目录导航，方便打开相关文件
 
-1. #### jistr/vim-nerdtree-tabs
+#### [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
 
     增强nerdtree
 
-1. #### bling/vim-airline
+#### [vim-airline](https://github.com/bling/vim-airline)
 
     状态栏增加
 
-1. #### altercation/vim-colors-solarized
+#### [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 
     vim主题
 
-1. #### scrooloose/syntastic
+#### [syntastic](https://github.com/scrooloose/syntastic)
 
     语法检测，支持多种语言
 
-1. #### majutsushi/tagbar
+#### [tagbar](https://github.com/majutsushi/tagbar)
 
     函数跳转
 
     依赖ctags（如果没安装请先安装），用于函数跳转
 
-1. #### vim-scripts/tComment
+#### [tComment](https://github.com/vim-scripts/tComment)
 
     快速注释
 
-1. #### 自动补全和自定义代码片段插件
+#### 自动补全和自定义代码片段插件
 
-    Shougo/neocomplcache  Shougo/neosnippet  Shougo/neosnippet-snippets honza/vim-snippets
+    [neocomplcache](https://github.com/Shougo/neocomplcache)  [neosnippet](https://github.com/Shougo/neosnippet)  [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets) [vim-snippets](https://github.com/honza/vim-snippets)
 
-1. #### plasticboy/vim-markdown
+#### [vim-markdown](https://github.com/plasticboy/vim-markdown)
 
     markdown语法高亮等
 
