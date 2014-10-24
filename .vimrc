@@ -29,7 +29,7 @@
         "Vim 在与屏幕/键盘交互时使用的编码(取决于实际的终端的设定)
         set termencoding=utf-8
         "Vim 打开文件时的尝试使用的编码
-        set fileencodings=utf-8,gbk,default,latin1
+        set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
         " Use Unix as the standard file type
         set ffs=unix,dos,mac
         " 鼠标暂不启用
@@ -300,7 +300,7 @@
         "map <F5> :call StripTrailingBr()<CR>
         
         " 去掉行尾空格
-        "map <F6> :call StripTrailingBr()<CR>
+        "map <F6> :call DeleteTrailingWS()<CR>
         "也可以设置为保存php的过程中自动进行处理 
         "autocmd BufWrite *.php :call DeleteTrailingWS()
 
@@ -329,7 +329,7 @@
             normal o
         endfunc
 
-        "删除行尾^M符号
+        " 删除行尾^M符号
         function! StripTrailingBr()  
             exec "%s/\r//g"
         endfunction
