@@ -121,7 +121,7 @@
         " 关闭交换文件
         set noswapfile
 
-        " Setting up the directories {
+        " Setting up the directories
         if has('persistent_undo')
             " So is persistent undo ...
             set undofile
