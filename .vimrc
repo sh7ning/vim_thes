@@ -6,6 +6,17 @@
 " }
 
 " Environment {
+    " Identify platform {
+        silent function! OSX()
+            return has('macunix')
+        endfunction
+        silent function! LINUX()
+            return has('unix') && !has('macunix') && !has('win32unix')
+        endfunction
+        silent function! WINDOWS()
+            return  (has('win16') || has('win32') || has('win64'))
+        endfunction
+    " }
 
     " Basics {
         "格式化高亮
@@ -30,6 +41,8 @@
         set termencoding=utf-8
         "Vim 打开文件时的尝试使用的编码
         set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+        " 中文帮助
+        set helplang=cn
         " Use Unix as the standard file type
         set ffs=unix,dos,mac
         " 鼠标暂不启用
@@ -121,7 +134,7 @@
         " 关闭交换文件
         set noswapfile
 
-        " Setting up the directories {
+        " Setting up the directories
         if has('persistent_undo')
             " So is persistent undo ...
             set undofile
@@ -204,6 +217,19 @@
         highlight clear LineNr
         " Remove highlight color from current line number
         "highlight clear CursorLineNr
+        if has('gui_running')
+            set guioptions-=T           " Remove the toolbar
+            set lines=40                " 40 lines of text instead of 24
+            if !exists("g:spf13_no_big_font")
+                if LINUX() && has("gui_running")
+                    set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+                elseif OSX() && has("gui_running")
+                    set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+                elseif WINDOWS() && has("gui_running")
+                    set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+                endif
+            endif
+        endif
     " "}
 
     " Map hot key and setup Plugin {
@@ -268,12 +294,17 @@
         endif
         " }
         " vim-airline {
-            if isdirectory(expand("~/.vim/bundle/neocomplcache"))
-                if !exists('g:airline_symbols')
-                    let g:airline_symbols = {}
+            if isdirectory(expand("~/.vim/bundle/vim-airline/"))
+                if !exists('g:airline_theme')
+                    let g:airline_theme = 'solarized'
                 endif
-                let g:airline_left_sep = '>'
-                let g:airline_right_sep = '<'
+                if !exists('g:airline_powerline_fonts')
+                    if !exists('g:airline_symbols')
+                        let g:airline_symbols = {}
+                    endif
+                    let g:airline_left_sep = '>'
+                    let g:airline_right_sep = '<'
+                endif
             endif
         " }
         " vim-markdown {
