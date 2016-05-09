@@ -58,9 +58,9 @@
             ""Bundle 'matchit.zip'
 
             "快速查找文件
-            ""Bundle 'kien/ctrlp.vim'
+            Bundle 'kien/ctrlp.vim'
             "列出文件中的函数名
-            ""Bundle 'tacahiroy/ctrlp-funky'
+            Bundle 'tacahiroy/ctrlp-funky'
 
             "代码垂直缩进对齐线
             ""Bundle 'nathanaelkane/vim-indent-guides'

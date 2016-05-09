@@ -216,7 +216,7 @@
         " Current line number row will have same background color in relative mode
         highlight clear LineNr
         " Remove highlight color from current line number
-        "highlight clear CursorLineNr
+        " highlight clear CursorLineNr
         if has('gui_running')
             set guioptions-=T           " Remove the toolbar
             set lines=40                " 40 lines of text instead of 24
@@ -246,6 +246,13 @@
                 " key
                 map <Leader>n <plug>NERDTreeTabsToggle<CR>
                 "map <leader>e :NERDTreeToggle<CR>
+            endif
+        " }
+        " scrooloose/syntastic {
+            if isdirectory(expand("~/.vim/bundle/syntastic"))
+                " let g:syntastic_phpcs_conf = \"--tab-width=4 --standard=psr2\"
+                " let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+                let g:syntastic_php_checkers = ['php', 'phpmd']
             endif
         " }
         " PIV {
@@ -306,7 +313,49 @@
                     let g:airline_right_sep = '<'
                 endif
             endif
-        " }
+       " }
+       " ctrlp {
+       " <leader>p 搜文件 <leader>fu搜方法
+       if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
+           let g:ctrlp_map = '<leader>p'
+           let g:ctrlp_cmd = 'CtrlP'
+           map <leader>f :CtrlPMRU<CR>
+           let g:ctrlp_custom_ignore = {
+                       \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+                       \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+                       \ }
+           " let g:ctrlp_working_path_mode=0
+           let g:ctrlp_working_path_mode = 'ra'
+           let g:ctrlp_match_window_bottom=1
+           let g:ctrlp_max_height=15
+           let g:ctrlp_match_window_reversed=0
+           let g:ctrlp_mruf_max=500
+           let g:ctrlp_follow_symlinks=1
+
+
+           if executable('ag')
+               let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+           elseif executable('ack-grep')
+               let s:ctrlp_fallback = 'ack-grep %s --nocolor -f'
+           elseif executable('ack')
+               let s:ctrlp_fallback = 'ack %s --nocolor -f'
+               " On Windows use "dir" as fallback command.
+           elseif WINDOWS()
+               let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+           else
+               let s:ctrlp_fallback = 'find %s -type f'
+           endif
+
+           if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
+               " CtrlP extensions
+               let g:ctrlp_extensions = ['funky']
+
+               "funky
+               nnoremap <Leader>fu :CtrlPFunky<Cr>
+           endif
+       endif
+       "}
+
         " vim-markdown {
             if isdirectory(expand("~/.vim/bundle/vim-markdown"))
                 let g:vim_markdown_folding_disabled=1
@@ -318,6 +367,7 @@
         set pastetoggle=<F4>
         "php语法检测，因为安装了语法插件，所以不启用，如插件无效，可以手动开启
         "map <F3> :!php -l % <CR>
+        "map <F3> :set filetype=html <CR>
         "svn使用 {
             "更新当前目录的代码
             "map <F7> :!svn up <CR>
@@ -352,6 +402,12 @@
             "如果文件类型为php
             if &filetype == 'php'
                 call setline(1, "<?php")
+                call setline(2, "")
+                call setline(3, "\/**")
+                call setline(4, " * make_change")
+                call setline(5, " *")
+                call setline(6, " * @author sh7ning")
+                call setline(7, " */")
                 "call append(0, "<?php")
                 "call append(line("$"), "?>")
             endif
@@ -379,6 +435,9 @@
         endif
         " Always switch to the current file directory
         autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+        " set autochdir
+        " ctrl+] | ctrl + t
+        set tags=tags;
         "配置文件.vimrc更改后自动重新载入使设置生效
         autocmd! bufwritepost .vimrc source ~/.vimrc
     " }
