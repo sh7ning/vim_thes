@@ -5,6 +5,9 @@ vim_thes
 - vim7.3+
 - git
 
+> 如果不想安装插件，则建议使用服务器版本的配置
+> [无插件服务器版本](https://github.com/sh7ning/vim_thes_server)
+
 > 关于：
 - 最后更新时间：2014.10.9
 
