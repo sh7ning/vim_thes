@@ -407,7 +407,8 @@
                 call setline(4, " * make_change")
                 call setline(5, " *")
                 call setline(6, " * @author sh7ning")
-                call setline(7, " */")
+                call setline(7, " * @since " . strftime("%F"))
+                call setline(8, " */")
                 "call append(0, "<?php")
                 "call append(line("$"), "?>")
             endif
