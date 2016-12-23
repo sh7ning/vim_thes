@@ -82,6 +82,8 @@
 
             "主题
             Bundle 'altercation/vim-colors-solarized'
+            "解决airline报错问题
+            Bundle 'vim-airline/vim-airline-themes'
             ""Bundle 'spf13/vim-colors'
             ""Bundle 'flazz/vim-colorschemes'
 
