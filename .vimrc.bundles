@@ -197,6 +197,6 @@
         endif
     " }
     " Other {
-        Bundle 'plasticboy/vim-markdown'
+        "Bundle 'plasticboy/vim-markdown'
     " }
 " }
