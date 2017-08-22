@@ -417,7 +417,7 @@
             normal o
         endfunc
 
-        " 删除行尾^M符号
+        " 删除行尾^M符号 CTRL-V CTRL-M %s///g
         " 如果是很多行合并为一行了用 %s/\r/\r/g
         function! StripTrailingBr()  
             exec "%s/\r//g"
