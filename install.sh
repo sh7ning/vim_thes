@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # {
-    # http://thes.sinaapp.com
-    # 安装方法: L选项是强制重定向
+    # Installation: 
+    # -L 选项是强制重定向
     # git clone --recursive https://github.com/sh7ning/vim_thes.git $HOME/.vim_thes && sh $HOME/.vim_thes/install.sh
-    # 或
-    # curl http://sh7ne.sinaapp.com/tools/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
+    # Or
+    # curl https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
 # }
 
 app_dir="$HOME/.vim_thes"
