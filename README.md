@@ -17,7 +17,7 @@ vim_thes
 # using curl
 curl -o thesVimBoot.sh https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh thesVimBoot.sh
 
-curl https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh -L > thesVimBoot.sh
+curl https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
 
 # using wget
 wget --no-check-certificate -O thesVimBoot.sh https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh thesVimBoot.sh
