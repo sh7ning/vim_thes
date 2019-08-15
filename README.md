@@ -13,7 +13,7 @@ vim_thes
 
 ### vim_thes安装方法
 
-    curl https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh -L > thesVimBoot.sh && sh thesVimBoot.sh
+    curl -o thesVimBoot.sh https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh thesVimBoot.sh
 
 这个过程会帮你备份好你之前的vim配置和插件，然后安装好插件
 
