@@ -15,7 +15,7 @@ vim_thes
 
 ```
 # using curl
-curl -LO https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh thesVimBoot.sh
+curl -LO https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh install.sh
 
 curl -o thesVimBoot.sh https://raw.githubusercontent.com/sh7ning/vim_thes/master/install.sh && sh thesVimBoot.sh
 
