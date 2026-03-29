@@ -284,11 +284,11 @@
                 let g:neosnippet#enable_snipmate_compatibility = 1
 
                 " For snippet_complete marker.
-                if !exists("g:spf13_no_conceal")
-                    if has('conceal')
-                        set conceallevel=2 concealcursor=i
-                    endif
-                endif
+                " if !exists("g:spf13_no_conceal")
+                "     if has('conceal')
+                "         set conceallevel=2 concealcursor=i
+                "     endif
+                " endif
 
                 " Enable neosnippets when using go
                 let g:go_snippet_engine = "neosnippet"
@@ -417,7 +417,8 @@
             normal o
         endfunc
 
-        " 删除行尾^M符号 CTRL-V CTRL-M %s///g
+        " 删除行尾^M符号 CTRL-V CTRL-M %s/
+//g
         " 如果是很多行合并为一行了用 %s/\r/\r/g
         function! StripTrailingBr()  
             exec "%s/\r//g"
