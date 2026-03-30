@@ -1,4 +1,6 @@
-vim_thes
+# vim_thes (Deprecated!)
+
+### This repository is no longer maintained.
 =======================
 
 > 安装环境需要：
